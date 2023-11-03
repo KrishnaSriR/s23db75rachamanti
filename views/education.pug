@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    h1= title
+    -let results = [{ subject: "Math", grade: "A" },{ subject: "Science", grade: "B" },{ subject: "History", grade: "C" }]
+    .container-fluid
+      .row
+        each result,index in results
+          .col-sm-2(onclick=`buy(${index})`)
+            p Subject: #{result.subject}
+            p Grade: #{result.grade}
+    script.
+      function buy(index) {
+        alert(`You purchased item ${index}.`);
+      }
