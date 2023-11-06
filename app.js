@@ -30,7 +30,7 @@ async function recreateDB(){
   await Education.deleteMany();
   let edu1 = new Education({subject:"Science", grade:'A'});
   let edu2 = new Education({subject:"Maths", grade:'O'});
-  let edu3 = new Education({subject:"Biology", grade:'A'}); 
+  let edu3 = new Education({subject:"Biology", grade:'B'}); 
   
   edu1.save().then(doc=>{console.log("First object saved")})
   .catch(err=>{console.error(err)});

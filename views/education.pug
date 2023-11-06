@@ -2,7 +2,7 @@ extends layout
 
 block content
     h1= title
-    -let results = [{ subject: "Math", grade: "A" },{ subject: "Science", grade: "B" },{ subject: "History", grade: "C" }]
+    -let results = Educationlist
     .container-fluid
       .row
         each result,index in results
