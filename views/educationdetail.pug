@@ -1,0 +1,18 @@
+extends layout
+block content
+    h1= title
+    - let id = toShow.id
+    - let subject  = toShow.subject
+    - let grade = toShow.grade
+    div
+      div.row
+        div(class='educationAttr mr-3') Education ID is:
+        div #{id}
+      div.row
+        div(class='educationAttr mr-3') Education Subject is:
+        div #{subject}
+      div.row
+        div(class='educationAttr mr-3') Education Grade is:
+        div #{grade}
+
+

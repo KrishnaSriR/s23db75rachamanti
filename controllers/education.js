@@ -34,9 +34,17 @@ exports.education_create_post = async function(req, res) {
     };
     
 // Handle Education delete form on DELETE.
-exports.education_delete = function(req, res) {
-res.send('NOT IMPLEMENTED: Education delete DELETE ' + req.params.id);
-};
+exports.education_delete = async function(req, res) {
+    console.log("delete " + req.params.id)
+    try {
+    result = await Education.findByIdAndDelete( req.params.id)
+    console.log("Removed " + result)
+    res.send(result)
+    } catch (err) {
+    res.status(500)
+    res.send(`{"error": Error deleting ${err}}`);
+    }
+    };
 // Handle Education update form on PUT.
 exports.education_update_put = async function(req, res) {
         console.log(`update on id ${req.params.id} with body

@@ -22,7 +22,7 @@ var educationRouter = require('./routes/education');
 var boardRouter = require('./routes/board');
 var chooseRouter = require('./routes/choose');
 var Education = require("./models/education");
-var resourceRouter=require('./routes/resource')
+var resourceRouter=require('./routes/resource');
 
 // We can seed the collection if needed on server start
 async function recreateDB(){
