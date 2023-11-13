@@ -2,6 +2,7 @@ var express = require('express');
 const education_controlers= require('../controllers/education');
 const detail_controllers=require('../controllers/detail');
 const create_controllers=require('../controllers/create');
+const update_controllers=require('../controllers/update');
 
 var router = express.Router();
 /* GET Education */
@@ -25,5 +26,12 @@ try{
 catch(err){
         console.error();
  }
+ /* GET create update page */
+ try{
+    router.get('/update', update_controllers.education_update_Page); 
+}
+catch(err){
+       console.error();
+}
     
 module.exports = router;

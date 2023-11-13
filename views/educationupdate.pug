@@ -1,28 +1,35 @@
 extends layout
 block content
   h1= title
-  form(id='educationForm', action="/resource/education", method="POST")
+  - let id = toShow.id
+  - let subject = toShow.subject
+  - let grade = toShow.grade
+  div.row(class='mb-2')
+    div.mr-1 ID is
+    div #{id}
+  - let actionid = "/resource/education/" + id
+  form(id='educationForm', action=actionid, method="PUT")
     div.form-group
       label.educationAttr(for='subject') Education Subject
-      input#subject(type='text', name='subject')
+      input#subject(type='text', name='subject', value=subject)
     div.form-group
       label.educationAttr(for='grade') Education Grade
-      input#grade(type='text', name='grade')
+      input#grade(type='text', name='grade', value=grade)
     input(type="submit")
   script.
     document.forms['educationForm'].addEventListener('submit', (event) => {
       event.preventDefault();
         // TODO do something here to show user that form is being submitted
       fetch(event.target.action, {
-        method: 'POST',
+        method: 'PUT',
         body: new URLSearchParams(new FormData(event.target)) // event.target is the form
       }).then((resp) => {
         return resp.json(); // or resp.text() or whatever the server sends
       }).then((body) => {
-        alert("Save succeded")
+        alert("Update succeded")
         // TODO handle body
       }).catch((error) => {
         // TODO handle error
-        alert("Save failed " + error )
+        alert("Update failed " + error )
       });
     });
