@@ -1,18 +1,32 @@
 extends layout
+
 block content
-    h1= title
-    - let id = toShow._id
-    - let subject  = toShow.subject
-    - let grade = toShow.grade
-    div
-      div.row
-        div(class='educationAttr mr-3') Education ID is:
-        div #{id}
-      div.row
-        div(class='educationAttr mr-3') Education Subject is:
-        div #{subject}
-      div.row
-        div(class='educationAttr mr-3') Education Grade is:
-        div #{grade}
+  div.container
+    h1(class='text-center mb-4', style='color: #3498db;') #{title}
+    if (toShow == null)
+      h2 No instance to delete
+    else
+      - let id = toShow._id
+      - let subject  = toShow.subject
+      - let grade = toShow.grade
+      - let marks = toShow.marks
+      div.card
+        div.card-body
+          div.row.mb-3
+            div.col-md-6
+              strong(class='educationAttr') Education ID:   
+              span.ml-2 #{id}
+            div.col-md-6
+              strong(class='educationAttr') Education Subject:   
+              span.ml-2 #{subject}
 
+          div.row.mb-3
+            div.col-md-6
+              strong(class='educationAttr') Education Grade:  
+              span.ml-2 #{grade}
+            div.col-md-6
+              strong(class='educationAttr') Education Marks:  
+              span.ml-2 #{marks}
 
+      
+      

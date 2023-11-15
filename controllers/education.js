@@ -23,6 +23,7 @@ exports.education_create_post = async function(req, res) {
     // {"subject":"Maths", "garde":"A"}
     document.subject = req.body.subject;
     document.grade = req.body.grade;
+    document.marks=req.body.marks;
     try{
     let result = await document.save();
     res.send(result);
@@ -54,6 +55,7 @@ exports.education_update_put = async function(req, res) {
         // Do updates of properties
         if(req.body.subject) toUpdate.subject = req.body.subject;
         if(req.body.grade) toUpdate.grade = req.body.grade;
+        if(req.body.marks) toUpdate.marks = req.body.marks;
         let result = await toUpdate.save();
         console.log("Sucess " + result)
         res.send(result)

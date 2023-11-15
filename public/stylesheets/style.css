@@ -11,4 +11,19 @@ a {
   background-color: aquamarine;
   width: 120px;
   }
+body {
+  background-color: #f8f9fa;
+  }
+.container {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 50px;
+  }
+.card {
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  border-radius: 8px;
+  }
   

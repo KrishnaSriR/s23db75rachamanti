@@ -28,9 +28,9 @@ var resourceRouter=require('./routes/resource');
 async function recreateDB(){
   // Delete everything
   await Education.deleteMany();
-  let edu1 = new Education({subject:"Science", grade:'A'});
-  let edu2 = new Education({subject:"Maths", grade:'O'});
-  let edu3 = new Education({subject:"Biology", grade:'B'}); 
+  let edu1 = new Education({subject:"Science", grade:'A',marks:89});
+  let edu2 = new Education({subject:"Maths", grade:'O',marks:99});
+  let edu3 = new Education({subject:"Biology", grade:'B',marks:79}); 
   
   edu1.save().then(doc=>{console.log("First object saved")})
   .catch(err=>{console.error(err)});

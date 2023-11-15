@@ -8,6 +8,9 @@ block content
     div.form-group
       label.educationAttr(for='grade') Education Grade
       input#grade(type='text', name='grade')
+    div.form-group
+      label.educationAttr(for='marks') Education Marks
+      input#marks(type='text', name='marks')
     input(type="submit")
   script.
     document.forms['educationForm'].addEventListener('submit', (event) => {
