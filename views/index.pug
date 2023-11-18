@@ -1,20 +1,11 @@
 extends layout
-
 block content
-  h1= title
-  p Iam a comic reader
-  button(type="button", class="btn btn-secondary", onclick="goFaster()") Press Me
-  p <br>
-  div(id="faster") Click to Increase Speed
-  script.
-      var mph = 20;
-      var change = 1;
-
-      function goFaster() {
-        mph += change;
-        change++;
-        var div = document.getElementById("faster");
-        div.textContent = "MPH " + mph + " with change " + change;
-      }
-  p <br>
-  a(href="/education")  Education Results
+  if (!user)
+    a(href="/login") Login
+    br
+    a(href="/register") Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/education") Take me to Education page 
+    br
+    a(href="/logout") Logout
