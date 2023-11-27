@@ -3,15 +3,21 @@ extends layout
 block content
     h1= title
     -let results = Educationlist
+    - let create = `dispatch(\"/education/create\")`
+    button.btn( class="btn-warning ml-1", onclick= create) Create
     div(class="container-fluid")
       div(class="row m-1")
         each result,index in results
           - let destination = `dispatch(\"/education/update?id=${result._id}\")`
+          - let detail = `dispatch(\"/education/detail?id=${result._id}\")`
+          - let deletes = `dispatch(\"/education/delete?id=${result._id}\")`
           div(class="col-sm-2 m-1",onclick=`buy(${index})`)
             p Subject: #{result.subject}
             p Grade: #{result.grade}
             p Marks: #{result.marks}
             button.btn( class="btn-primary ml-1", onclick= destination) Update
+            button.btn( class="btn-info ml-2", onclick= detail) Detail
+            button.btn( class="btn-danger ml-3", onclick= deletes) Delete
     script.
       function buy(index) {
         alert(`You purchased item ${index}.`);
