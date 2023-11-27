@@ -44,6 +44,8 @@ res.render('login', { title: 'Costume App Login', user : req.user });
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
+if(req.session.returnTo)
+    res.redirect(req.session.returnTo);
 res.redirect('/');
 });
 

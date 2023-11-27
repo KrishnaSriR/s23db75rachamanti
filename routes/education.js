@@ -22,14 +22,13 @@ var router = express.Router();
     router.get('/detail', detail_controllers.education_view_one_Page);
 
 /* GET create education page */
-    router.get('/create', create_controllers.education_create_Page);
+    router.get('/create',secured, create_controllers.education_create_Page);
 
  /* GET  update education page */
     router.get('/update',secured, update_controllers.education_update_Page);
     
-
 /* GET delete education page */
-    router.get('/delete', delete_controllers.education_delete_Page); 
+    router.get('/delete',secured, delete_controllers.education_delete_Page); 
 
     
 module.exports = router;
